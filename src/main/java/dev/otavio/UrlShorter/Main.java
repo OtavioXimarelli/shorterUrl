@@ -56,7 +56,7 @@ public class Main implements RequestHandler<Map<String, Object>, Map<String, Obj
         try {
             String urlJson = objectMapper.writeValueAsString(urlData);
             PutObjectRequest request = PutObjectRequest.builder()
-                    .bucket("my-bucket-1-zika")
+                    .bucket("YOUR-S3-BUCKET-NAME")
                     .key(shortUrlCode + ".json")
                     .build();
 
@@ -68,6 +68,8 @@ public class Main implements RequestHandler<Map<String, Object>, Map<String, Obj
         Map<String, Object> response = new HashMap<>();
         response.put("code", shortUrlCode);
 
+
+        //CORS CONFIGURATION
         Map<String, String> headers = new HashMap<>();
         headers.put("Access-Control-Allow-Origin", "*");
         headers.put("Access-Control-Allow-Headers", "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token");
@@ -76,6 +78,8 @@ public class Main implements RequestHandler<Map<String, Object>, Map<String, Obj
 
         return response;
     }
+
+    //GENERATE MORE COMPREHENSIVE ERROR MESSAGES
 
     private Map<String, Object> buildErrorResponse(int statusCode, String message) {
         Map<String, Object> errorResponse = new HashMap<>();
