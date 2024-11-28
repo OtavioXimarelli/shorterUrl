@@ -6,7 +6,7 @@
 
     <groupId>dev.otavioximarelli</groupId>
     <artifactId>encurtadorDeUrl</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.4.3-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
